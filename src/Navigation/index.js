@@ -9,8 +9,19 @@ const Stack = createNativeStackNavigator()
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#ddd',
+          },
+          headerTitleAlign: 'center',
+        }}
+      >
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerShown: false }}
+        />
 
         {Animations.map(({ component, title }, id) => (
           <Stack.Screen name={title} component={component} key={id} />
